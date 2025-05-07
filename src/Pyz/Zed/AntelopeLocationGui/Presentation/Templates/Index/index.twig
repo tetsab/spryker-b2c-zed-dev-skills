@@ -1,0 +1,14 @@
+{% extends '@Gui/Layout/layout.twig' %}
+
+{% block content %}
+    <h3>Create Antelope Location</h3>
+    {{ form_start(form) }}
+        {{ form_row(form.name) }}
+        <button type="submit" class="btn btn-primary">Save</button>
+    {{ form_end(form) }}
+
+    <hr />
+
+    <h3>Antelope Location List</h3>
+    {{ table | raw }}
+{% endblock %}
