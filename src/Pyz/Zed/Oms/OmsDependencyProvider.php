@@ -38,6 +38,8 @@ use Spryker\Zed\Shipment\Dependency\Plugin\Oms\ShipmentOrderMailExpanderPlugin;
 use Spryker\Zed\TaxApp\Communication\Plugin\Oms\Command\SubmitPaymentTaxInvoicePlugin;
 use Spryker\Zed\TaxApp\Communication\Plugin\Oms\OrderRefundedEventListenerPlugin;
 use Spryker\Zed\WarehouseAllocation\Communication\Plugin\Oms\SalesOrderWarehouseAllocationCommandPlugin;
+use Pyz\Zed\Oms\Communication\Plugin\Command\Demo\PayCommand;
+use Pyz\Zed\Oms\Communication\Plugin\Condition\Demo\IsAuthorizedCondition;
 
 class OmsDependencyProvider extends SprykerOmsDependencyProvider
 {
@@ -109,6 +111,8 @@ class OmsDependencyProvider extends SprykerOmsDependencyProvider
             $commandCollection->add(new SendRefundPaymentMessageCommandPlugin(), 'Payment/Refund');
             $commandCollection->add(new SendCancelPaymentMessageCommandPlugin(), 'Payment/Cancel');
             $commandCollection->add(new RefundCommandPlugin(), 'Payment/Refund/Confirm');
+            $commandCollection->add(new PayCommand(), 'Demo/Pay');
+            $commandCollection->add(new IsAuthorizedCondition(), 'Demo/IsAuthorized');
 
             return $commandCollection;
         });

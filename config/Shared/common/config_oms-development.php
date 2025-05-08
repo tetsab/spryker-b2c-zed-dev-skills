@@ -53,3 +53,10 @@ $config[SalesConstants::PAYMENT_METHOD_STATEMACHINE_MAPPING] = array_replace(
     GiftCardConfig::PROVIDER_NAME => 'DummyPayment01',
     ],
 );
+
+
+$config[OmsConstants::ACTIVE_PROCESSES] = array_merge([
+    'Nopayment01',
+    'DummyPayment01',
+    'Demo01',
+ ], $config[OmsConstants::ACTIVE_PROCESSES]);
