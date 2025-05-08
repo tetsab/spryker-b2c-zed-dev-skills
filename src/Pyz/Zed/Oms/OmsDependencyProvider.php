@@ -40,6 +40,9 @@ use Spryker\Zed\TaxApp\Communication\Plugin\Oms\OrderRefundedEventListenerPlugin
 use Spryker\Zed\WarehouseAllocation\Communication\Plugin\Oms\SalesOrderWarehouseAllocationCommandPlugin;
 use Pyz\Zed\Oms\Communication\Plugin\Command\Demo\PayCommand;
 use Pyz\Zed\Oms\Communication\Plugin\Condition\Demo\IsAuthorizedCondition;
+use Pyz\Zed\Oms\Communication\Plugin\Condition\IsPaymentAuthorizedCondition;
+use Pyz\Zed\Oms\Communication\Plugin\Command\AuthorizePaymentCommand;
+use Pyz\Zed\Oms\Communication\Plugin\Command\ShipOrderCommand;
 
 class OmsDependencyProvider extends SprykerOmsDependencyProvider
 {
@@ -192,6 +195,21 @@ class OmsDependencyProvider extends SprykerOmsDependencyProvider
     {
         return [
             new OrderRefundedEventListenerPlugin(),
+        ];
+    }
+
+    protected function getConditionPlugins(): array
+    {
+        return [
+            'IsPaymentAuthorized' => new IsPaymentAuthorizedCondition(),
+        ];
+    }
+
+    protected function getCommandPlugins(): array
+    {
+        return [
+            'AuthorizePaymentCommand' => new AuthorizePaymentCommand(),
+            'ShipOrderCommand' => new ShipOrderCommand(),
         ];
     }
 }
