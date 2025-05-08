@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<process name="CustomOrderProcess" main="true">
+    <states>
+        <state name="new"/>
+        <state name="paid"/>
+        <state name="shipped"/>
+        <state name="canceled"/>
+        <state name="closed"/>
+    </states>
+
+    <events>
+        <event name="authorize_payment" command="AuthorizePaymentCommand" />
+        <event name="ship_order" command="ShipOrderCommand" />
+        <event name="cancel_order" />
+    </events>
+
+    <transitions>
+        <transition condition="IsPaymentAuthorized" event="authorize_payment" source="new" target="paid"/>
+        <transition event="ship_order" source="paid" target="shipped"/>
+        <transition event="cancel_order" source="new" target="canceled"/>
+        <transition source="shipped" target="closed"/>
+    </transitions>
+</process>
