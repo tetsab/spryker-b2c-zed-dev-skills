@@ -1,5 +1,12 @@
 <?php
 
+/**
+ * This file is part of the Spryker Commerce OS.
+ * For full license information, please view the LICENSE file that was distributed with this source code.
+ */
+
+declare(strict_types = 1);
+
 namespace Pyz\Zed\AntelopeGui\Communication\Table;
 
 use Orm\Zed\Antelope\Persistence\Map\PyzAntelopeTableMap;
@@ -11,7 +18,9 @@ use Spryker\Zed\Gui\Communication\Table\TableConfiguration;
 class AntelopeTable extends AbstractTable
 {
     public const COL_ID_ANTELOPE = 'id_antelope';
+
     public const COL_NAME = 'name';
+
     public const COL_COLOR = 'color';
 
     protected $antelopeQuery;
@@ -26,7 +35,7 @@ class AntelopeTable extends AbstractTable
      *
      * @return \Spryker\Zed\Gui\Communication\Table\TableConfiguration
      */
-    protected function configure(TableConfiguration $config)
+    protected function configure(TableConfiguration $config): TableConfiguration
     {
         $config->setHeader([
             static::COL_ID_ANTELOPE => 'Antelope ID',
@@ -53,12 +62,12 @@ class AntelopeTable extends AbstractTable
      *
      * @return array
      */
-    protected function prepareData(TableConfiguration $config)
+    protected function prepareData(TableConfiguration $config): array
     {
         $antelopeEntityCollection = $this->runQuery(
             $this->antelopeQuery,
             $config,
-            true
+            true,
         );
 
         if (!$antelopeEntityCollection->count()) {
