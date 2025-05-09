@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<transfers xmlns="spryker:transfer-01">
+    <transfer name="AntelopeLocationBackendApiAttributes">
+        <property name="idAntelopeLocation" type="int"/>
+        <property name="name" type="string"/>
+        <property name="latitude" type="float"/>
+        <property name="longitude" type="float"/>
+    </transfer>
+</transfers>
