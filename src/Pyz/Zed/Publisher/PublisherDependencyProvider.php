@@ -116,6 +116,7 @@ use Spryker\Zed\StoreStorage\Communication\Plugin\Publisher\Store\StoreWritePubl
 use Spryker\Zed\TaxApp\Communication\Plugin\Publisher\Store\RefreshTaxAppStoreRelationPublisherPlugin;
 use Spryker\Zed\TaxProductStorage\Communication\Plugin\Publisher\TaxProductPublisherTriggerPlugin;
 use Spryker\Zed\TaxStorage\Communication\Plugin\Publisher\TaxSetPublisherTriggerPlugin;
+use Pyz\Zed\AntelopeLocationSearch\Communication\Plugin\Publisher\AntelopeLocationWritePublisherPlugin;
 
 class PublisherDependencyProvider extends SprykerPublisherDependencyProvider
 {
@@ -144,8 +145,17 @@ class PublisherDependencyProvider extends SprykerPublisherDependencyProvider
             $this->getProductMessageBrokerPlugins(),
             $this->getAssetPlugins(),
             $this->getTaxAppPlugins(),
+            $this->getAntelopeLocationSearchPlugins(),
         );
     }
+
+    protected function getAntelopeLocationSearchPlugins(): array
+    {
+        return [
+            AntelopeLocationWritePublisherPlugin::class,
+        ];
+    }
+
 
     /**
      * @return array<mixed>

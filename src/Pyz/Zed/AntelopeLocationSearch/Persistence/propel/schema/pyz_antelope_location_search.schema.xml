@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<database name="zed" namespace="Orm\Zed\AntelopeLocationSearch\Persistence" package="src.Orm.Zed.AntelopeLocationSearch.Persistence">
+
+    <table name="pyz_antelope_location_search">
+        <column name="id_antelope_location_search" type="INTEGER" primaryKey="true" autoIncrement="true"/>
+        <column name="fk_antelope_location" type="INTEGER" required="true"/>
+        <column name="data" type="LONGVARCHAR"/>
+        <column name="structured_data" type="LONGVARCHAR"/>
+        <column name="created_at" type="TIMESTAMP"/>
+        <column name="updated_at" type="TIMESTAMP"/>
+    </table>
+
+</database>
