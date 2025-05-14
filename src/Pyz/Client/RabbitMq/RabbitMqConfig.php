@@ -47,6 +47,7 @@ use Spryker\Shared\TaxProductStorage\TaxProductStorageConfig;
 use Spryker\Shared\TaxStorage\TaxStorageConfig;
 use Spryker\Shared\UrlStorage\UrlStorageConfig;
 use Spryker\Shared\UrlStorage\UrlStorageConstants;
+use Pyz\Shared\AntelopeLocation\AntelopeLocationConstants;
 
 /**
  * @SuppressWarnings(PHPMD.CouplingBetweenObjects)
@@ -88,6 +89,7 @@ class RabbitMqConfig extends SprykerRabbitMqConfig
                 EventConstants::EVENT_QUEUE => [
                     EventConfig::EVENT_ROUTING_KEY_RETRY => EventConstants::EVENT_QUEUE_RETRY,
                     EventConfig::EVENT_ROUTING_KEY_ERROR => EventConstants::EVENT_QUEUE_ERROR,
+                    AntelopeLocationConstants::SYNC_SEARCH_ANTELOPE_LOCATION
                 ],
                 $this->get(LogConstants::LOG_QUEUE_NAME),
             ],

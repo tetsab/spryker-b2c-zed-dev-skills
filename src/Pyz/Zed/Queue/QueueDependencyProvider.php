@@ -53,6 +53,7 @@ use Spryker\Zed\RabbitMq\Communication\Plugin\Queue\RabbitMqQueueMessageCheckerP
 use Spryker\Zed\Synchronization\Communication\Plugin\Queue\SynchronizationSearchQueueMessageProcessorPlugin;
 use Spryker\Zed\Synchronization\Communication\Plugin\Queue\SynchronizationStorageQueueMessageProcessorPlugin;
 use SprykerEco\Zed\Loggly\Communication\Plugin\LogglyLoggerQueueMessageProcessorPlugin;
+use Pyz\Shared\AntelopeLocation\AntelopeLocationConstants;
 
 class QueueDependencyProvider extends SprykerDependencyProvider
 {
@@ -107,6 +108,8 @@ class QueueDependencyProvider extends SprykerDependencyProvider
             AssetStorageConfig::ASSET_SYNC_STORAGE_QUEUE => new SynchronizationStorageQueueMessageProcessorPlugin(),
             ProductConfigurationStorageConfig::PRODUCT_CONFIGURATION_SYNC_STORAGE_QUEUE => new SynchronizationStorageQueueMessageProcessorPlugin(),
             SearchHttpConfig::SEARCH_HTTP_CONFIG_SYNC_QUEUE => new SynchronizationStorageQueueMessageProcessorPlugin(),
+            AntelopeLocationConstants::SYNC_SEARCH_ANTELOPE_LOCATION => new SynchronizationSearchQueueMessageProcessorPlugin(),
+
         ];
     }
 
